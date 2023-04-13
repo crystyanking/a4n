@@ -1,0 +1,86 @@
+<h<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="ramon2.css" rel="stylesheet">       
+    <title>Document</title>
+</head>
+<body>
+
+    <form name="CadProf" action="/action_page.php" onsubmit="return validacaoformulario()" method="post">
+        <h2>Cadastro de Professores</h2>
+        <div>
+            <label for="matriculaprof">Matricula do Professor:</label>
+            <input type="text" id="matriculaprof" name="matriculaprof" />
+        </div>
+        <div>
+            <label for="nomeprof">Nome do Professor:</label>
+            <input type="text" id="nomeprof" name="nomeprof" />
+        </div>
+        <div>
+            <label for="cursoprof">Curso do Professor:</label>
+            <input type="text" name="cursoprof"></textarea>
+        </div>
+        <div>
+            <label for="disciplinaprof">Disciplina do Professor:</label>
+            <input type="text" name="disciplinaprof"></textarea>
+        </div>
+        <div class="button">
+            <button type="submit">Cadastrar</button>
+        </div>
+        <div class="button">
+            <button type="button" id="botao" onmouseover="mouseOver()" onmouseout="mouseOut()" onclick="LimpaCampos()">????????</button>
+        </div>
+    </form>
+
+<script>
+    function validacaoformulario() {
+        let x = document.forms["CadProf"]["matriculaprof"].value;
+        let y = document.forms["CadProf"]["nomeprof"].value;
+        let z = document.forms["CadProf"]["cursoprof"].value;
+        let w = document.forms["CadProf"]["disciplinaprof"].value;
+        if (x == "") {
+            window.alert("Não esqueça de digitar a matrícula!");
+            return false;
+        }
+        else if (y == "") {
+            window.alert("Não esqueça de digitar o nome!");
+            return false;
+        }
+        else if (z == "") {
+            window.alert("Não esqueça de digitar o curso!");
+            return false;
+        }
+        else if (w == "") {
+            window.alert("Não esqueça de digitar a disciplina!");
+            return false;
+        }
+        else {
+            window.alert("Todos os campos estão preenchidos e foram enviados para o SGBD.")
+            return true;
+        }
+}
+        
+        function mouseOver() {
+            document.getElementById("botao").innerHTML = "Apagar";
+        }
+
+        function mouseOut() {
+            document.getElementById("botao").innerHTML = "...";
+        }
+        
+        function LimpaCampos() {
+            document.forms["CadProf"]["matriculaprof"].value = ""
+            document.forms["CadProf"]["nomeprof"].value = ""
+            document.forms["CadProf"]["cursoprof"].value = ""
+            document.forms["CadProf"]["disciplinaprof"].value = ""
+        }
+</script>
+    
+
+<!-- <script type="text/javascript" src="script.js"></script> -->
+
+</body>
+</html>
